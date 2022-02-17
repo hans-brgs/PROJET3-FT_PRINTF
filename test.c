@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 20:44:51 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 21:03:45 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -330,8 +330,8 @@ int main()
 	int p = 2;
 	test = &p;
 	
-	size1 = printf(" %p \n", -1);
-	size2 = ft_printf(" %p \n", -1);
+	size1 = printf(" %p %p \n", LONG_MIN, LONG_MAX);
+	size2 = ft_printf(" %p %p \n", LONG_MIN, LONG_MAX);
 
 	printf("size1 = %d size2 = %d", size1, size2);
 }
