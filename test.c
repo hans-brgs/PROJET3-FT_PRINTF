@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:24:06 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:27:21 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,6 @@ int	ft_putchar_fd(char c, int fd)
 		return (size) ;
 	size = write(fd, &c, sizeof(char));
 	return (size) ;
-}
-
-int	ft_putstr_fd(char *s, int fd)
-{
-	int size; 
-
-	size = 0;
-	if (!s || fd < 0)
-		return (size);
-	size = write(fd, s, sizeof(char) * ft_strlen(s));
-	return (size);
 }
 
 int	ft_putnbr_fd(int n, int fd)
@@ -71,6 +60,17 @@ size_t	ft_strlen(const char *s)
 	{
 		size++;
 	}
+	return (size);
+}
+
+int	ft_putstr_fd(char *s, int fd)
+{
+	int size; 
+
+	size = 0;
+	if (!s || fd < 0)
+		return (size);
+	size = write(fd, s, sizeof(char) * ft_strlen(s));
 	return (size);
 }
 
