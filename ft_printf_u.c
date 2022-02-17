@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 09:05:59 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 10:04:11 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:04:18 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int ft_printf_u (va_list arg) 
 {
 	int	size;
-	int add;
+	unsigned int add;
 
 	size = 0;
-	add = va_arg(arg, int);
-	size += ft_putnbr_fd (add, 1);
+	add = va_arg(arg, unsigned int);
+	size = ft_putnbr_unsigned_fd (add, 1);
 	return(size);
 }

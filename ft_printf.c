@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 10:12:46 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:08:45 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static int write_args(char c, va_list arg)
 		size +=  ft_printf_p(arg);
 	else if (c == 'd')
 		size +=  ft_printf_d(arg);
-	// else if (c == 'i')
-	// 	size +=  ft_printf_i(arg);
-	// else if (c == 'u')
-	// 	size +=  ft_printf_u(arg);
+	else if (c == 'i')
+		size +=  ft_printf_i(arg);
+	else if (c == 'u')
+		size +=  ft_printf_u(arg);
 	else if (c == 'x')
 		size +=  ft_printf_x_low(arg);
 	else if (c == 'X')

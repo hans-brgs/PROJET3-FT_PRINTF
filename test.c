@@ -6,11 +6,12 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:27:21 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:11:53 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
+#include <limits.h> 
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -23,13 +24,13 @@ int	ft_putchar_fd(char c, int fd)
 	size = 0;
 	if (fd < 0)
 		return (size) ;
-	size = write(fd, &c, sizeof(char));
+	size += write(fd, &c, sizeof(char));
 	return (size) ;
 }
 
 int	ft_putnbr_fd(int n, int fd)
 {
-	int 			size;
+	static int		size;
 	unsigned int	n_bis;
 
 	size = 0;
@@ -37,16 +38,35 @@ int	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		n_bis = -n;
-		size += ft_putchar_fd('-', fd);
+		ft_putchar_fd('-', fd);
 	}
 	else
 		n_bis = n;
 	if (n_bis > 9)
 	{
 		ft_putnbr_fd(n_bis / 10, fd);
-		ft_putnbr_fd(n_bis % 10, fd);
+		n_bis %= 10;
 	}
-	else
+	if (n_bis < 10)
+		size += ft_putchar_fd(n_bis + '0', fd);
+	if (n < 0)
+		size ++;
+	return (size);
+}
+
+int	ft_putnbr_unsigned_fd(unsigned int n, int fd)
+{
+	static int		size;
+	unsigned int	n_bis;
+
+	size = 0;
+	n_bis = n;
+	if (n_bis > 9)
+	{
+		ft_putnbr_unsigned_fd(n_bis / 10, fd);
+		n_bis %= 10;
+	}
+	if (n_bis < 10)
 		size += ft_putchar_fd(n_bis + '0', fd);
 	return (size);
 }
@@ -99,30 +119,24 @@ static size_t check_base(char *base)
 	return (i);
 }
 
-int ft_putnbr_base_fd (int nbr, char *base, int fd)
+int ft_putnbr_base_fd (unsigned int nbr, char *base, int fd)
 {
 	unsigned int	nbr_bis;
 	size_t			size_base;
-	int			size;
-	
+	static int 		size;
+
 	size = 0;
 	nbr_bis = 0;
 	size_base = check_base(base);
 	if (!size_base)
 		return (size);
-	if (nbr < 0)
-	{
-		nbr_bis = -nbr;
-		size += ft_putchar_fd('-', fd);
-	}
-	else
-		nbr_bis = nbr;
+	nbr_bis = nbr;
 	if (nbr_bis > size_base - 1)
 	{
 		ft_putnbr_base_fd(nbr_bis / size_base, base, fd);
-		ft_putnbr_base_fd(nbr_bis % size_base, base, fd);
+		nbr_bis %= size_base;
 	}
-	else
+	if (nbr_bis < size_base)
 		size += ft_putchar_fd(base[nbr_bis], fd);
 	return (size);
 }
@@ -163,7 +177,7 @@ int ft_printf_p (va_list arg)
 	size = 0;
 	add = va_arg(arg, int);
 	size += ft_putstr_fd("0x", 2);
-	size += ft_putnbr_base_fd (add, "0123456789abcdef", 1);
+	size = ft_putnbr_base_fd (add, "0123456789abcdef", 1);
 	return(size);
 }
 
@@ -174,45 +188,52 @@ int ft_printf_d (va_list arg)
 
 	size = 0;
 	add = va_arg(arg, int);
-	size += ft_putnbr_fd (add, 1);
+	size = ft_putnbr_fd (add, 1);
 	return(size);
 }
 
-// int ft_printf_i (va_list arg) 
-// {
-// 	int	size;
+int ft_printf_i (va_list arg) 
+{
+	int	size;
+	int add;
 
-// 	size = 0;
-// 	return(size);
-// }
+	size = 0;
+	add = va_arg(arg, int);
+	size = ft_putnbr_fd (add, 1);
+	return(size);
+}
 
-// int ft_printf_u (va_list arg) 
-// {
-// 	int	size;
+int ft_printf_u (va_list arg) 
+{
+	int	size;
+	unsigned int add;
 
-// 	size = 0;
-// 	return(size);
-// }
+	size = 0;
+	add = va_arg(arg, unsigned int);
+	size = ft_putnbr_unsigned_fd (add, 1);
+	return(size);
+}
 
 int ft_printf_x (va_list arg) 
 {
 	int	size;
-	int	hex_low;
+	unsigned int	hex_low;
 	
 	size = 0;
-	hex_low = va_arg(arg, int);
-	ft_putnbr_base_fd (hex_low, "0123456789abcdef", 1);
+	hex_low = (unsigned int)va_arg(arg, int);
+	// size = ft_convert_hex(hex_low);
+	size = ft_putnbr_base_fd (hex_low, "0123456789abcdef", 1);
 	return(size);
 }
 
 int ft_printf_X (va_list arg) 
 {
 	int	size;
-	int hex_up;
+	unsigned int	hex_up;
 	
 	size = 0;
-	hex_up = va_arg(arg, int);
-	ft_putnbr_base_fd (hex_up, "0123456789ABCDEF", 1);
+	hex_up = (unsigned int)va_arg(arg, int);
+	size = ft_putnbr_base_fd (hex_up, "0123456789ABCDEF", 1);
 	return (size);
 }
 
@@ -240,10 +261,10 @@ int write_args(char c, va_list arg)
 		size +=  ft_printf_p(arg);
 	else if (c == 'd')
 		size +=  ft_printf_d(arg);
-	// else if (c == 'i')
-	// 	size +=  ft_printf_i(arg);
-	// else if (c == 'u')
-	// 	size +=  ft_printf_u(arg);
+	else if (c == 'i')
+		size +=  ft_printf_i(arg);
+	else if (c == 'u')
+		size +=  ft_printf_u(arg);
 	else if (c == 'x')
 		size +=  ft_printf_x(arg);
 	else if (c == 'X')
@@ -282,8 +303,8 @@ int main()
 	int size1; 
 	int size2; 
 	
-	size1 = printf(" NULL %s NULL \n", NULL);
-	size2 = ft_printf(" NULL %s NULL \n", NULL);
+	size1 = printf(" %p \n", -1);
+	size2 = ft_printf(" %p \n", -1);
 
 	printf("size1 = %d, size2 = %d", size1, size2);
 }
