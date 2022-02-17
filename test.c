@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 20:19:49 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 20:44:51 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -323,15 +323,15 @@ int ft_printf(const char *str, ...)
 
 int main()
 {
-	// int size1; 
+	int size1; 
 	int size2; 
-	// void *test;
+	void *test;
 
-	// int p = 2;
-	// test = &p;
+	int p = 2;
+	test = &p;
 	
-	// size1 = printf(" NULL %s NULL \n", NULL);
-	size2 = ft_printf(" NULL %s NULL \n", NULL);
+	size1 = printf(" %p \n", -1);
+	size2 = ft_printf(" %p \n", -1);
 
-	printf("size2 = %d", size2);
+	printf("size1 = %d size2 = %d", size1, size2);
 }
