@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:11:39 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:12:43 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,8 +270,8 @@ int main()
 	int size1; 
 	int size2; 
 	
-	size1 = printf(" NULL %s NULL ", NULL);
-	size2 = ft_printf(" NULL %s NULL ", NULL);
+	size1 = printf(" NULL %s NULL \n", NULL);
+	size2 = ft_printf(" NULL %s NULL \n", NULL);
 
 	printf("size1 = %d, size2 = %d", size1, size2);
 }
