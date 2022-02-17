@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:42:18 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 09:45:48 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 19:52:56 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <stdarg.h>
 #include "libft/libft.h"
 
