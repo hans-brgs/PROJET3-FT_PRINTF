@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 21:03:45 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 21:08:12 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,7 @@ int ft_printf_p (va_list arg)
 
 	size = 0;
 	add = va_arg(arg, unsigned long long int);
-	size += ft_putstr_fd("0x", 2);
+	size += ft_putstr_fd("0x", 1);
 	// size = ft_convert_hex(add);
 	size += ft_putnbr_base_fd (add, "0123456789abcdef", 1);
 	return(size);
