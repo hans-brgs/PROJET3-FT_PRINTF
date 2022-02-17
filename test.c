@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 18:15:10 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 19:10:47 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,9 +302,13 @@ int main()
 {
 	int size1; 
 	int size2; 
+	void *test;
+
+	int p = 2;
+	test = &p;
 	
-	size1 = printf(" %p \n", -1);
-	size2 = ft_printf(" %p \n", -1);
+	size1 = printf(" %p \n", test);
+	size2 = ft_printf(" %p \n", test);
 
 	printf("size1 = %d, size2 = %d", size1, size2);
 }
