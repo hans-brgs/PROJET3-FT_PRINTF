@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 10:20:50 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:11:39 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ int ft_printf_s (va_list arg)
 	size = 0;
 	str = va_arg(arg, char *);
 	if (str == NULL)
-		return(size);
+		str = strdup("(null)");
 	while (*str)
 	{
 		size += write(1,str,1);
