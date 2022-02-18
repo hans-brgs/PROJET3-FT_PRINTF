@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:23:29 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 21:08:12 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/18 08:28:08 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,11 +193,11 @@ int ft_printf_s (va_list arg)
 
 int ft_printf_p (va_list arg) 
 {
-	int	size;
-	unsigned long long int	add;
+	int		size;
+	void	*add;
 
 	size = 0;
-	add = va_arg(arg, unsigned long long int);
+	add = (unsigned long long)va_arg(arg, void *);
 	size += ft_putstr_fd("0x", 1);
 	// size = ft_convert_hex(add);
 	size += ft_putnbr_base_fd (add, "0123456789abcdef", 1);
