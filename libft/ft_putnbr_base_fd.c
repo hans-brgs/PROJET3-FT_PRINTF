@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:48:19 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 19:44:03 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/18 08:08:35 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static size_t check_base(char *base)
 	return (i);
 }
 
-int ft_putnbr_base_fd (unsigned long long int nbr, char *base, int fd)
+int ft_putnbr_base_fd (unsigned long int nbr, char *base, int fd)
 {
-	unsigned long long int	nbr_bis;
+	unsigned long int	nbr_bis;
 	size_t			size_base;
 	static int 		size;
 
