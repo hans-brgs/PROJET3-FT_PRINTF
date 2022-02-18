@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 22:00:07 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/18 08:10:11 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/18 08:54:24 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_putendl_fd(char *s, int fd);
 int		ft_putnbr_fd(int n, int fd);
 
 /* OWN */
-int		ft_putnbr_base_fd (unsigned long int nbr, char *base, int fd);
+int		ft_putnbr_base_fd (unsigned long nbr, char *base, int fd);
 int		ft_putnbr_unsigned_fd (unsigned int n, int fd);
 
 /* BONUS */
