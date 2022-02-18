@@ -6,17 +6,17 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 09:05:52 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/17 09:08:06 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/18 10:19:02 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf_per () 
+int	ft_printf_per(void)
 {
-	int	size;
+	int		size;
 	char	c;
-	
+
 	size = 0;
 	c = '%';
 	size = write(1, &c, 1);

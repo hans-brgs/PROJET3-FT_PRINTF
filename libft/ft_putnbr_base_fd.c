@@ -6,17 +6,17 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:48:19 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/18 08:57:15 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/18 10:26:48 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t check_base(char *base)
+static size_t	check_base(char *base)
 {
-	size_t i;
-	size_t j;
-	
+	size_t	i;
+	size_t	j;
+
 	i = 0;
 	j = 0;
 	if (ft_strlen(base) < 2)
@@ -29,7 +29,7 @@ static size_t check_base(char *base)
 		while (base[j])
 		{
 			if (base[i] == base[j])
-				return(0);
+				return (0);
 			j++;
 		}
 		i++;
@@ -37,11 +37,11 @@ static size_t check_base(char *base)
 	return (i);
 }
 
-int ft_putnbr_base_fd (unsigned long int nbr, char *base, int fd)
+int	ft_putnbr_base_fd(unsigned long int nbr, char *base, int fd)
 {
 	unsigned long int	nbr_bis;
-	size_t			size_base;
-	static int 		size;
+	size_t				size_base;
+	static int			size;
 
 	size = 0;
 	nbr_bis = 0;
