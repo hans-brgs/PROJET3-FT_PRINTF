@@ -6,7 +6,7 @@
 /*   By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 09:05:48 by hbourgeo          #+#    #+#             */
-/*   Updated: 2022/02/18 08:42:23 by hbourgeo         ###   ########.fr       */
+/*   Updated: 2022/02/18 08:51:45 by hbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int ft_printf_p (va_list arg)
 		return(size);
 	}
 	size += ft_putstr_fd("0x", 1);
-	size += ft_putnbr_base_fd ((unsigned long int)add, "0123456789abcdef", 1);
+	size += ft_putnbr_base_fd ((unsigned long)add, "0123456789abcdef", 1);
 	return(size);
 }
