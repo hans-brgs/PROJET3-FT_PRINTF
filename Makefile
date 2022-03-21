@@ -13,6 +13,7 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
+DEPS = ft_print.h
 
 SRC =	ft_printf.c	\
 		ft_printf_c.c\
@@ -28,10 +29,10 @@ SRC =	ft_printf.c	\
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+%.o : %.c $(DEPS)
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(OBJ) : $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
+all: $(NAME)
 	
 $(NAME) : $(OBJ)
 	make -C libft
