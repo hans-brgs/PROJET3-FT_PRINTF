@@ -6,14 +6,14 @@
 #    By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 07:55:41 by hbourgeo          #+#    #+#              #
-#    Updated: 2022/02/17 10:03:22 by hbourgeo         ###   ########.fr        #
+#    Updated: 2022/03/24 16:54:50 by hbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
-DEPS = ft_print.h
+DEPS = ft_printf.h
 
 SRC =	ft_printf.c	\
 		ft_printf_c.c\
