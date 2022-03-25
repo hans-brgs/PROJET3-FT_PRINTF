@@ -6,7 +6,7 @@
 #    By: hbourgeo <hbourgeo@student.19.be>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 07:55:41 by hbourgeo          #+#    #+#              #
-#    Updated: 2022/03/24 16:54:50 by hbourgeo         ###   ########.fr        #
+#    Updated: 2022/03/25 09:54:33 by hbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC =	ft_printf.c	\
 OBJ = $(SRC:.c=.o)
 
 %.o : %.c $(DEPS)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 	
