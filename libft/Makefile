@@ -77,7 +77,7 @@ bonus: $(OBJ) $(OBJ_B)
 	@ar -rcs $(NAME) $(OBJ) $(OBJ_B)	
 
 clean : 
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(OBJ_B)
 	rm -f bonus
 
 fclean : clean
