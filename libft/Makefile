@@ -66,7 +66,7 @@ OBJ = $(SRC:.c=.o) $(OWN:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 
 %.o : %.c
-	$(CC) -c $(CFLAGS) $^ -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 	
 all : 	$(NAME)	
 
@@ -77,7 +77,7 @@ bonus: $(OBJ) $(OBJ_B)
 	@ar -rcs $(NAME) $(OBJ) $(OBJ_B)	
 
 clean : 
-	rm -rf *.o
+	rm -rf $(OBJ)
 	rm -f bonus
 
 fclean : clean
@@ -86,4 +86,3 @@ fclean : clean
 re : fclean all
 
 .PHONY: clean fclean all re
-

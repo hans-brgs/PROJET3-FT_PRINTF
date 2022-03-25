@@ -40,7 +40,7 @@ $(NAME) : $(OBJ)
 	ar rs $(NAME) $(OBJ)
 
 clean :
-	rm -rf *.o
+	rm -rf $(OBJ)
 
 fclean : clean
 	rm -rf $(NAME)
